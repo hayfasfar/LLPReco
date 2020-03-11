@@ -2,7 +2,8 @@ import FWCore.ParameterSet.Config as cms
 
 from FWCore.ParameterSet.VarParsing import VarParsing
 options = VarParsing('analysis')
-options.inputFiles = 'root://maite.iihe.ac.be//store/user/tomc/heavyNeutrinoMiniAOD/Moriond17_aug2018_miniAODv3/displaced/HeavyNeutrino_lljj_M-10_V-0.00107238052948_e_Dirac_massiveAndCKM_LO/heavyNeutrino_10.root'
+#options.inputFiles = 'root://maite.iihe.ac.be//store/user/tomc/heavyNeutrinoMiniAOD/Moriond17_aug2018_miniAODv3/displaced/HeavyNeutrino_lljj_M-10_V-0.00107238052948_e_Dirac_massiveAndCKM_LO/heavyNeutrino_10.root'
+options.inputFiles ='root://maite.iihe.ac.be//store/user/tomc/heavyNeutrinoMiniAOD/Moriond17_aug2018_miniAODv3/displaced/HeavyNeutrino_lljj_M-6_V-0.00286356421266_e_Dirac_massiveAndCKM_LO/heavyNeutrino_16.root'
 options.parseArguments()
 
 process = cms.Process("USER")

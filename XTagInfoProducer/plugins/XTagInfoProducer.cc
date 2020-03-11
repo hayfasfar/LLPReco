@@ -346,17 +346,10 @@ XTagInfoProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
             cpf_features.cpf_track_chi2 = constituent->pseudoTrack().chi2();
             cpf_features.cpf_track_ndof = constituent->pseudoTrack().ndof();
             cpf_features.cpf_track_quality = constituent->pseudoTrack().qualityMask();
-<<<<<<< HEAD
-	    cpf_features.cpf_track_numberOfValidPixelHits = constituent->pseudoTrack().hitPattern().numberOfValidPixelHits ();
-	    cpf_features.cpf_track_pixelLayersWithMeasurement  = constituent->pseudoTrack().hitPattern().pixelLayersWithMeasurement ();
-	    cpf_features.cpf_track_numberOfValidStripHits = constituent->pseudoTrack().hitPattern().numberOfValidStripHits () ;
-	    cpf_features.cpf_track_stripLayersWithMeasurement = constituent->pseudoTrack().hitPattern().stripLayersWithMeasurement() ;
-=======
     	    cpf_features.cpf_track_numberOfValidPixelHits = constituent->pseudoTrack().hitPattern().numberOfValidPixelHits();
     	    cpf_features.cpf_track_pixelLayersWithMeasurement  = constituent->pseudoTrack().hitPattern().pixelLayersWithMeasurement();
     	    cpf_features.cpf_track_numberOfValidStripHits = constituent->pseudoTrack().hitPattern().numberOfValidStripHits();
     	    cpf_features.cpf_track_stripLayersWithMeasurement = constituent->pseudoTrack().hitPattern().stripLayersWithMeasurement();
->>>>>>> upstream/master
 		
 
             if (jet.mass()<1e-10)
