@@ -516,6 +516,7 @@ XTagInfoProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
                 elec_features.elec_e1x5Overe5x5 = electron.e1x5()/electron.e5x5();
                 elec_features.elec_e2x5MaxOvere5x5 = electron.e2x5Max()/electron.e5x5();
 
+
                 elec_features.elec_eSeedClusterOverP = electron.eSeedClusterOverP();
                 elec_features.elec_eSeedClusterOverPout = electron.eSeedClusterOverPout();
                 elec_features.elec_eSuperClusterOverP = electron.eSuperClusterOverP();
@@ -544,6 +545,8 @@ XTagInfoProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
                 elec_features.elec_full5x5_hcalOverEcal  = electron.full5x5_hcalOverEcal();
                 elec_features.elec_full5x5_hcalOverEcalBc = electron.full5x5_hcalOverEcalBc();
                 elec_features.elec_full5x5_r9  = electron.full5x5_r9();
+		std::cout<< " e1*5 is : "<<  electron.full5x5_e1x5() << "full5x5_e5x5 is : "<< electron.full5x5_e5x5() << std::endl ;
+		std::cout << "full5x5_e1x5Overe5x5 is : "<< elec_features.elec_full5x5_e1x5Overe5x5 <<  std::endl ;
 
 
                 elec_features.elec_deltaEtaEleClusterTrackAtCalo  = electron.deltaEtaEleClusterTrackAtCalo();
