@@ -46,6 +46,8 @@ elif options.year == '2017':
     process = cms.Process('NANO',eras.Run2_2017,eras.run2_nanoAOD_94XMiniAODv2)
 elif options.year == '2018' or options.year == '2018D':
     process = cms.Process('NANO',eras.Run2_2018,eras.run2_nanoAOD_102Xv1)
+else:
+    process = cms.Process('NANO',eras.Run2_2016,eras.run2_nanoAOD_94X2016)
 
 print "Selected year: ",options.year
 
@@ -79,9 +81,12 @@ process.maxEvents = cms.untracked.PSet(
 )
 
 files = {
+    'test': {
+        "mc": "https://github.com/LLPDNNX/test-files/raw/master/miniaod/Moriond17_aug2018_miniAODv3_HNL.root",
+        },
     '2016': { #mean displacement = 5 cm
-        "mc": "root://maite.iihe.ac.be//store/user/tomc/heavyNeutrinoMiniAOD/Moriond17_aug2018_miniAODv3/displaced/HeavyNeutrino_lljj_M-8_V-0.004472135955_tau_Dirac_massiveAndCKM_LO/heavyNeutrino_1.root",
-        #"mc": "root://maite.iihe.ac.be///store/user/tomc/heavyNeutrinoMiniAOD/Moriond17_aug2018_miniAODv3/displaced/HeavyNeutrino_lljj_M-10_V-0.00112249721603_mu_Dirac_massiveAndCKM_LO/heavyNeutrino_76.root",
+        "mc": "root://maite.iihe.ac.be///store/user/tomc/heavyNeutrinoMiniAOD/Moriond17_aug2018_miniAODv3/displaced/HeavyNeutrino_lljj_M-2_V-0.0137840487521_mu_Dirac_massiveAndCKM_LO/heavyNeutrino_70.root",
+        #"mc": "root://cmsxrootd.fnal.gov//store/user/mcitron/ProjectMetis/HeavyNeutrino_lljj_M-2_V-0p0137840487521_mu_massiveAndCKM_LO_TuneCUETP8M1_madgraph-pythia8_privateMC_80X_MINIAODSIMv3_v1_generation_forHNL_2016/output_1.root",
         "data": "/store/data/Run2016B/SingleMuon/MINIAOD/17Jul2018_ver2-v1/30000/14F647C4-6C92-E811-9571-90E2BACBAD64.root",
     },
     '2017': {
@@ -97,6 +102,7 @@ files = {
     }
 }
 
+print files[options.year]['mc']
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(files[options.year]['data'] if options.isData else files[options.year]['mc'])
 )
@@ -163,6 +169,9 @@ process.OUT = cms.OutputModule("PoolOutputModule",
     fileName = cms.untracked.string('test.root'),
     outputCommands = cms.untracked.vstring(['keep *'])
 )
+
+if options.year == "test":
+    options.year = "2016"
 
 if options.isData:
     if options.year == '2016':
